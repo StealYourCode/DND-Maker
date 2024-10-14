@@ -5,7 +5,7 @@ html, body {
     margin: 0; /* Remove default margin */
 
 body {
-    background-image: url('background-home.png');
+    background-image: url('../images/background-home.png');
     background-size: cover;
     background-position: center;
     color: #f5f5dc; /* Light beige for readability */
@@ -38,6 +38,16 @@ h1 {
     position: relative;
 }
 
+.buttonBox{
+    background-color: rgba(61, 47, 27, 0.9); /* Dark brown box with slight transparency */
+    padding: 1.5em;
+    border: 2px solid #3d2f1b;
+    border-radius: 12px;
+    width: 60%;
+    margin: 1.5em auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6);
+  }
+
 button {
     background-color: #3d2f1b; /* Dark brown button background */
     color: #f5f5dc; /* Light beige text */
@@ -59,6 +69,15 @@ button:hover {
     transform: scale(1.1); /* Slight enlargement on hover */
     z-index: 2;
 }
+
+.button-image {
+    width: 80%; /* Set to 80% of the container width */
+    margin-top: 0.5em;
+    border-radius: 8px;
+    border: 2px solid #3d2f1b;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
 
 pre {
     background-color: rgba(61, 47, 27, 0.8); /* Dark translucent background */
