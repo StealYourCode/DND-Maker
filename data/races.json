@@ -1,0 +1,6 @@
+{
+    "races": [
+        {"name": "Elf", "abilities": {"Dexterity": 2}},
+        {"name": "Dwarf", "abilities": {"Constitution": 2}}
+    ]
+}

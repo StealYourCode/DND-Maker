@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D&D Character Creator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>New character</h1>
+
+
+    <button onclick="backHome()">Return to the main menu</button>
+  
+
+    <script>
+        function backHome() {
+          if (window.confirm("Are you sure you want to go back, your data won't be save ?")){
+            location.href = "/";
+          }
+        }
+    </script>
+
+
+</body>
+</html>
