@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>D&D Character Creator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Welcome to D&D Character Creator</h1>
+    <button onclick="newChara()">Create a new Character</button>
+    <button onclick="loadChara()">Load an existing Character</button>
+
+
+    <script>
+        function newChara() {
+          if (window.confirm("Are you sure you want to create a new character ?")){
+            location.href = "create";
+          }
+        }
+
+        function loadChara() {
+        location.href = "loaded";
+        }
+
+    </script>
+</body>
+</html>
