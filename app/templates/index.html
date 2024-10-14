@@ -10,12 +10,11 @@
 
     <div class="buttonBox">
     <button onclick="newChara()">Create a new Character</button>
-    <img src="../images/newChara.png" alt="Create Character Image" class="button-image">
+    <img src="/static/newChara.png" alt="Create Character Image" class="button-image">
 
     <button onclick="loadChara()">Load an existing Character</button>
-    <img src="images/loadChara.jpg" alt="Create Character Image" class="button-image">
+    <img src="/static/loadChara.jpg" alt="Create Character Image" class="button-image">
 
-    <button onclick="getarea()">get area</button>
     </div>
 
     <script>
@@ -28,11 +27,6 @@
         function loadChara() {
         location.href = "loaded";
         }
-
-        function getarea() {
-        console.log('Current directory: ' + process.cwd());
-        }
-
     </script>
 </body>
 </html>

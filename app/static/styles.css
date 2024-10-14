@@ -5,7 +5,7 @@ html, body {
     margin: 0; /* Remove default margin */
 
 body {
-    background-image: url('../images/background-home.png');
+  background-image: url('background-home.png');
     background-size: cover;
     background-position: center;
     color: #f5f5dc; /* Light beige for readability */
