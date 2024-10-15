@@ -8,11 +8,53 @@
 <body>
     <h1>New character</h1>
 
+    <div class="progress-bar">
+      <div class="progress-bar-fill" id="progressFill"></div>
+      <!-- Step markers below the progress bar -->
+      <div class="progress-step" style="left: 0%;">Races</div>
+      <div class="progress-step" style="left: 25%;">Classes</div>
+      <div class="progress-step" style="left: 50%;">Background</div>
+      <div class="progress-step" style="left: 75%;">Starting Item</div>
+      <div class="progress-step" style="left: 100%;">Finish</div>
+    </div>
 
+    <div class="buttonBox">
+      
+      <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+          <a href="#">Link 1</a>
+          <a href="#">Link 2</a>
+          <a href="#">Link 3</a>
+        </div>
+      </div> 
+
+
+    <button onclick="advence()">Progress</button>
     <button onclick="backHome()">Return to the main menu</button>
+    </div>
+
   
 
     <script>
+      async function loadRaces() {
+        const response = await fetch('/get_races');
+        const races = await response.json();
+        document.getElementById('dropdown-content').textContent = JSON.stringify(data, null, 2);
+      }
+
+
+      const progressBarFill = document.getElementById('progress-bar');
+
+      function updateProgressBar(stepIndex) {
+        const stepPercentage = 100 / 5; // Total 5 steps
+        progressBarFill.style.width = `${(stepIndex + 1) * stepPercentage}%`;
+             }
+
+      function advence() {
+        updateProgressBar(3);
+      }
+
         function backHome() {
           if (window.confirm("Are you sure you want to go back, your data won't be save ?")){
             location.href = "/";
