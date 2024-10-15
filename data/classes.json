@@ -1,6 +1,6 @@
 {
     "classes": [
-        {"name": "Fighter", "hit_die": 10},
-        {"name": "Wizard", "hit_die": 6}
+        {"name": "Fighter", "hit_die": 10, "image":"/static/classes/fighter.png"},
+        {"name": "Wizard", "hit_die": 6, "image":"/static/classes/wizard.png"}
     ]
 }

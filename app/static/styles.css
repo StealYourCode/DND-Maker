@@ -112,49 +112,6 @@ pre {
     z-index: 2;
 }
 
-/* ---- Start Dropdown Button ----*/
-.dropbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
-
-/* ---- END THE DROPDOWN BUTTON ----*/
-
 /* ---- START OF THE NEW CHARA PROGRESS BAR ---- */
 .progress-bar {
     margin: auto;
@@ -194,6 +151,36 @@ pre {
 
 /* ---- End OF NEW CHARA PROGRESS BAR*/
 
+/* ---- Start OF NEW CHARA IMAGES ----*/
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.race-card {
+    width: 200px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.race-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.race-name {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* ---- END OF NEW CHARA IMAGES*/
 
 
 @media (max-width: 600px) {

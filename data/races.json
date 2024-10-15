@@ -1,6 +1,6 @@
 {
     "races": [
-        {"name": "Elf", "abilities": {"Dexterity": 2}},
-        {"name": "Dwarf", "abilities": {"Constitution": 2}}
+        {"name": "Elf", "abilities": {"Dexterity": 2}, "image":"/static/Races/elf.png"},
+        {"name": "Dwarf", "abilities": {"Constitution": 2}, "image":"/static/races/dwarf.png"}
     ]
 }

@@ -4,7 +4,7 @@ from flask import Flask, jsonify, render_template
 
 # Load data from JSON file
 with open("data/classes.json") as f:
-    data = json.load(f)
+    classes = json.load(f)
 
 with open("data/races.json") as f:
     races = json.load(f)
@@ -27,9 +27,9 @@ def create_app():
     def loadCharacter():
         return render_template("loadCharacter.html")
 
-    @app.route("/get_data")
+    @app.route("/get_classes")
     def get_data():
-        return jsonify(data)
+        return jsonify(classes)
 
     @app.route("/get_races")
     def get_races():

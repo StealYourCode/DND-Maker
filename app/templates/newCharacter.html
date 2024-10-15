@@ -20,17 +20,11 @@
 
     <div class="buttonBox">
       
-      <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
-        </div>
-      </div> 
 
+    <div id="cardContainer" class="card-container"></div>
 
-    <button onclick="advence()">Progress</button>
+    <button onclick="loadRaces()">Start</button>
+    <button onclick="next(1)">Progress</button>
     <button onclick="backHome()">Return to the main menu</button>
     </div>
 
@@ -38,28 +32,62 @@
 
     <script>
       async function loadRaces() {
-        const response = await fetch('/get_races');
-        const races = await response.json();
-        document.getElementById('dropdown-content').textContent = JSON.stringify(data, null, 2);
+        try {
+          const response = await fetch('/get_races');
+          if (!response.ok) throw new Error("Network response was not ok");
+          const races = await response.json();
+
+          const cardContainer = document.getElementById('cardContainer'); // Ensure this div exists in your HTML
+
+          // Clear any existing cards in case the function is called multiple times
+          cardContainer.innerHTML = '';
+
+          races.forEach(race => {
+            // Create a card div
+            const card = document.createElement('div');
+            card.className = 'race-card';
+
+            // Create an image element
+            const img = document.createElement('img');
+            img.src = race.image; // Assuming 'image' is the correct path key
+            img.alt = race.name || "Race Image"; // Use race name or a default alt text
+            img.className = 'race-image';
+
+            // Optionally, add other details (e.g., race name)
+            const name = document.createElement('h3');
+            name.textContent = race.name || 'Unnamed Race';
+            name.className = 'race-name';
+
+            // Append image and other details to the card
+            card.appendChild(img);
+            card.appendChild(name);
+
+            // Append card to the container
+            cardContainer.appendChild(card);
+        })
+
+        } catch (error) {
+          console.error("There was a problem with the races fetch operation:", error);
+        }
       }
 
 
-      const progressBarFill = document.getElementById('progress-bar');
+      const progressBarFill = document.getElementById('progressFill');
 
       function updateProgressBar(stepIndex) {
         const stepPercentage = 100 / 5; // Total 5 steps
         progressBarFill.style.width = `${(stepIndex + 1) * stepPercentage}%`;
-             }
-
-      function advence() {
-        updateProgressBar(3);
       }
 
-        function backHome() {
-          if (window.confirm("Are you sure you want to go back, your data won't be save ?")){
-            location.href = "/";
-          }
+      function next(stepindex) {
+        updateProgressBar(stepindex);
+      }
+
+      function backHome() {
+        if (window.confirm("Are you sure you want to go back, your data won't be save ?")){
+          location.href = "/";
         }
+      }
     </script>
 
 
