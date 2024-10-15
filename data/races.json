@@ -1,6 +1,125 @@
 {
     "races": [
-        {"name": "Elf", "abilities": {"Dexterity": 2}, "image":"/static/Races/elf.png"},
-        {"name": "Dwarf", "abilities": {"Constitution": 2}, "image":"/static/races/dwarf.png"}
+        {
+            "name": "Dwarf",
+            "abilities": {"Constitution": 2, "Strength": 1},
+            "speed": 25,
+            "perks": {
+                "Darkvision": "Can see in darkness up to 60 feet.",
+                "Dwarven Resilience": "Advantage on saving throws against poison, and resistance to poison damage.",
+                "Stonecunning": "Gain expertise on History checks related to the origin of stonework."
+            },
+            "description": "Dwarves are known for their resilience, hardiness, and connection to the earth.",
+            "image": "/static/Races/dwarf.png"
+        },
+        {
+            "name": "Elf",
+            "abilities": {"Dexterity": 2, "Intelligence": 1},
+            "speed": 30,
+            "perks": {
+                "Darkvision": "Can see in darkness up to 60 feet.",
+                "Fey Ancestry": "Advantage on saving throws against being charmed, and immune to magical sleep.",
+                "Trance": "Do not need to sleep; instead, meditate deeply for 4 hours to gain the benefits of 8 hours of sleep.",
+                "Keen Senses": "Proficiency in the Perception skill."
+            },
+            "description": "Elves are graceful and agile, with a deep connection to magic and nature.",
+            "image": "/static/Races/elf.png"
+        },
+        {
+            "name": "Aasimar",
+            "abilities": {"Charisma": 2, "Wisdom": 1},
+            "speed": 30,
+            "perks": {
+                "Darkvision": "Can see in darkness up to 60 feet.",
+                "Celestial Resistance": "Resistance to necrotic and radiant damage.",
+                "Healing Hands": "Can heal a creature within touch range for a number of hit points equal to your level, once per long rest.",
+                "Light Bearer": "Can cast the Light cantrip."
+            },
+            "description": "Aasimars are blessed with a celestial heritage, often acting as protectors.",
+            "image": "/static/Races/aasimar.png"
+        },
+        {
+            "name": "Dragonborn",
+            "abilities": {"Strength": 2, "Charisma": 1},
+            "speed": 30,
+            "perks": {
+                "Draconic Ancestry": "Choose a type of dragon ancestry, which grants a specific breath weapon and damage resistance.",
+                "Breath Weapon": "Can use an action to exhale destructive energy; the damage type and area are determined by your draconic ancestry.",
+                "Damage Resistance": "Gain resistance to the damage type associated with your draconic ancestry."
+            },
+            "description": "Dragonborn are proud and strong, with draconic blood granting them unique powers.",
+            "image": "/static/Races/dragonborn.png"
+        },
+        {
+            "name": "Gnomes",
+            "abilities": {"Intelligence": 2},
+            "speed": 25,
+            "perks": {
+                "Darkvision": "Can see in darkness up to 60 feet.",
+                "Gnome Cunning": "Advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+            },
+            "description": "Gnomes are known for their curiosity, wit, and magical aptitude.",
+            "image": "/static/Races/gnomes.png"
+        },
+        {
+            "name": "Goliaths",
+            "abilities": {"Strength": 2, "Constitution": 1},
+            "speed": 30,
+            "perks": {
+                "Natural Athlete": "Proficiency in the Athletics skill.",
+                "Stone's Endurance": "Can reduce damage by 1d12 + Constitution modifier once per short or long rest.",
+                "Mountain Born": "Resistance to cold damage and can acclimate to high altitudes."
+            },
+            "description": "Goliaths are hulking beings with great strength and resilience, adapted to harsh climates.",
+            "image": "/static/Races/goliaths.png"
+        },
+        {
+            "name": "Halflings",
+            "abilities": {"Dexterity": 2},
+            "speed": 25,
+            "perks": {
+                "Lucky": "When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll and must use the new roll.",
+                "Brave": "Advantage on saving throws against being frightened.",
+                "Halfling Nimbleness": "Can move through the space of any creature that is a size larger than yours."
+            },
+            "description": "Halflings are small and unassuming, but with a knack for luck and evading danger.",
+            "image": "/static/Races/halflings.png"
+        },
+        {
+            "name": "Humans",
+            "abilities": {"All Abilities": 1},
+            "speed": 30,
+            "perks": {
+                "Versatile": "Humans can choose one skill to gain proficiency in.",
+                "Adaptable": "Humans have a bonus feat at 1st level."
+            },
+            "description": "Humans are the most adaptable and diverse race, capable of excelling in any field.",
+            "image": "/static/Races/humans.png"
+        },
+        {
+            "name": "Orcs",
+            "abilities": {"Strength": 2, "Constitution": 1},
+            "speed": 30,
+            "perks": {
+                "Darkvision": "Can see in darkness up to 60 feet.",
+                "Aggressive": "As a bonus action, can move up to your speed toward an enemy you can see.",
+                "Powerful Build": "Count as one size larger when determining carrying capacity and the weight you can push, drag, or lift."
+            },
+            "description": "Orcs are known for their might, resilience, and warrior spirit.",
+            "image": "/static/Races/orcs.png"
+        },
+        {
+            "name": "Tieflings",
+            "abilities": {"Charisma": 2, "Intelligence": 1},
+            "speed": 30,
+            "perks": {
+                "Darkvision": "Can see in darkness up to 60 feet.",
+                "Hellish Resistance": "Resistance to fire damage.",
+                "Infernal Legacy": "Can cast the Thaumaturgy cantrip, and later gain spells based on your level."
+            },
+            "description": "Tieflings have infernal blood that grants them unique magical abilities and resilience.",
+            "image": "/static/Races/tieflings.png"
+        }
     ]
 }
+

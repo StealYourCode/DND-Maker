@@ -22,9 +22,23 @@
       
 
     <div id="cardContainer" class="card-container"></div>
+    
+
+    <div id="modalOverlay" onclick="closeModal()"></div>
+    <div id="detailModal">
+        <h3 id="raceName">Race Name</h3>
+        <p id="raceAbilities">Race Abilities</p>
+        <p id="racePerks">Race Perks</p>
+        <p id="raceSpeed">Race Speed</p>
+        <p id="raceDescription">Race Description</p>
+        
+        <button onclick="closeModal()">Validate</button>
+        <button onclick="closeModal()">Close</button>
+    </div>
+
 
     <button onclick="loadRaces()">Start</button>
-    <button onclick="next(1)">Progress</button>
+    <button onclick="next(4)">Progress</button>
     <button onclick="backHome()">Return to the main menu</button>
     </div>
 
@@ -35,7 +49,8 @@
         try {
           const response = await fetch('/get_races');
           if (!response.ok) throw new Error("Network response was not ok");
-          const races = await response.json();
+          const data = await response.json();
+          const races = data.races
 
           const cardContainer = document.getElementById('cardContainer'); // Ensure this div exists in your HTML
 
@@ -64,6 +79,13 @@
 
             // Append card to the container
             cardContainer.appendChild(card);
+
+
+            card.addEventListener('click', () => {
+              showRaceDetails(race);
+              console.log("Hello !");
+            });
+
         })
 
         } catch (error) {
@@ -71,11 +93,45 @@
         }
       }
 
+      function showRaceDetails(race) {
+
+            abilitiesText = loopData(race.abilities)
+            perkText = loopData(race.perks)
+
+            // Display the modal with race details
+            document.getElementById('raceName').textContent = race.name || 'Unnamed Race';
+            document.getElementById('raceAbilities').textContent = abilitiesText|| 'No description available.';
+            document.getElementById('racePerks').textContent = perkText || 'No description available.';
+            document.getElementById('raceSpeed').textContent = race.speed || 'No description available.';
+            document.getElementById('raceDescription').textContent = race.description || 'No description available.';
+            document.getElementById('modalOverlay').style.display = 'block';
+            document.getElementById('detailModal').style.display = 'block';
+        }
+
+    function loopData(data) {
+      const jsonObjet = data || {}; // Use an empty object if undefined
+      let Text = '';
+
+      // Loop through the keys of the abilities object
+      for (const key in jsonObjet) {
+        if (jsonObjet.hasOwnProperty(key)) {
+          Text += `${key}: ${jsonObjet[key]},<br> `; // Format the key-value pair
+        }
+      }
+      return Text
+    }
+
+
+     function closeModal() {
+            // Hide the modal and overlay
+            document.getElementById('modalOverlay').style.display = 'none';
+            document.getElementById('detailModal').style.display = 'none';
+        }
 
       const progressBarFill = document.getElementById('progressFill');
 
       function updateProgressBar(stepIndex) {
-        const stepPercentage = 100 / 5; // Total 5 steps
+        const stepPercentage = 100 / 6; // Total 5 steps
         progressBarFill.style.width = `${(stepIndex + 1) * stepPercentage}%`;
       }
 
