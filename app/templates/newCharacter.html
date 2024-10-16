@@ -8,6 +8,7 @@
 
     <button onclick="loadData('/get_races', 'cardContainer', 'races')">Races</button>
     <button onclick="loadData('/get_classes', 'cardContainer', 'classes')">Classes</button>
+    <button onclick="finalizeSelection()">Finish</button>
     <button onclick="backHome()">Return to the main menu</button>
 
     <div id="cardContainer" class="card-container"></div>
@@ -46,7 +47,7 @@
         <!-- Modal Footer -->
         <div class="modal-footer">
           <button class="modal-button" onclick="closeModal()">Close</button>
-          <button class="modal-button" onclick="validateChoice(item)">Validate</button>
+          <button class="modal-button" onclick="validateChoice()">Validate</button>
         </div>
       </div>
     </div>

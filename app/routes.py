@@ -28,9 +28,7 @@ def create_app():
     def loadCharacter():
         return render_template("loadCharacter.html")
 
-
 # ---- PATH TO THE JSON DATA PAGES ----
-
     @app.route("/get_classes")
     def get_data():
         return jsonify(classes)
@@ -38,8 +36,5 @@ def create_app():
     @app.route("/get_races")
     def get_races():
         return jsonify(races)
-
-
-# ---- PATH TO THE JAVASCRIPT PAGES ----
 
     return app

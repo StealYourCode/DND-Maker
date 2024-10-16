@@ -1,10 +1,60 @@
-// ---- LOAD JSON DATA FUNCTION ----
 
+// ---- New CHARACTER DATA ----
 const userSelection = {
-    race: null,
-    class: null
-  };
+  name: null,
+  level: 1,
+  race: null,
+  class: null,
+  background: null,
+  alignment: null,
+  abilityScores: {
+    strength: null,
+    dexterity: null,
+    constitution: null,
+    intelligence: null,
+    wisdom: null,
+    charisma: null,
+  },
+  skills: [],
+  proficiencies: {
+    weapons: [],
+    armor: [],
+    tools: [],
+  },
+  equipment: [],
+  traits: [],
+  gold: 0,
+  armorClass: null,
+  hitPoints: null,
+  initiative: null,
+  spells: {
+    spellcastingAbility: null,
+    spellSlots: [],
+    knownSpells: [],
+  },
+  personality: {
+    traits: [],
+    ideals: [],
+    bonds: [],
+    flaws: [],
+    backstory: '',
+  },
+  appearance: {
+    height: null,
+    weight: null,
+    eyeColor: null,
+    hairColor: null,
+    physicalTraits: '',
+  },
+  languages: [],
+  affiliation: null,
+  notes: '',
+};
 
+// ---- GLOBAL VARIABLE THAT GET CURRENT DATA JSON (Fighter, Dwarf, etc)
+let currentItem = null;
+
+// ---- LOAD JSON DATA FUNCTION ----
 async function loadData(endpoint, containerId, itemType) {
   try {
     const response = await fetch(endpoint);
@@ -45,9 +95,11 @@ async function loadData(endpoint, containerId, itemType) {
 // ---- SHOW LOADED DATA IN A MODAL ----
 
 function modalInfo(item) {
+  // Load current item in a global variable
+  currentItem = item;
+
   // Set name
   document.getElementById('name').textContent = item.name || "No name found";
-  
   // Determine whether the item is a race or a class by checking for specific keys
   const isRace = item.hasOwnProperty('speed') && item.hasOwnProperty('abilities');
   const isClass = item.hasOwnProperty('hitDie') && item.hasOwnProperty('primaryAbility');
@@ -104,13 +156,28 @@ function closeModal() {
 
 // ---- VALIDATE USER CHOICE MODAL ----
 function validateChoice() {
-if (currentItem.type === 'race') {
-      userSelection.race = currentItem;
-    } else if (currentItem.type === 'class') {
-      userSelection.class = currentItem;
-    }
-  closeModal()
+  if (currentItem.type === 'race') {
+    userSelection.race = currentItem;
+  } else if (currentItem.type === 'class') {
+    userSelection.class = currentItem;
+  }
+
+  if (currentItem.abilities){
+    console.log("Current Item:", currentItem.name);
+    userSelection.race = currentItem.name;
+  } else if (currentItem.hitDie){
+    userSelection.class = currentItem.name;
+  }
+  else console.log("Invalid Choice in validation");
+  console.log(userSelection); 
+  closeModal();
 }
+
+// ---- Turn user choice into a json ----
+function finalizeSelection() {
+    const selectionJSON = JSON.stringify(userSelection);
+    console.log("Final Selection JSON:", selectionJSON);
+  }
 
 // ---- BACK TO THE HOME PAGE BUTTON ----
 
