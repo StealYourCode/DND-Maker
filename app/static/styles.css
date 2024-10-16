@@ -112,45 +112,6 @@ pre {
     z-index: 2;
 }
 
-/* ---- START OF THE NEW CHARA PROGRESS BAR ---- */
-.progress-bar {
-    margin: auto;
-    display: flex;
-    align-items: center;
-    width: 70%;
-    height: 20px;
-    background-color: #f5f5dc;
-    border: 2px solid #3d2f1b;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background-color: #e2b714; /* Gold-like color for completed steps */
-    width: 0%; /* Start at 0%, will be updated dynamically */
-    transition: width 0.5s ease;
-  }
-
-
-.progress-step {
-    position: absolute;
-    bottom: -25px;
-    width: 20px;
-    height: 20px;
-    background-color: #3d2f1b;
-    border-radius: 50%;
-    color: #f5f5dc;
-    font-size: 0.8em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform: translateX(-50%);
-}
-
-/* ---- End OF NEW CHARA PROGRESS BAR*/
-
 /* ---- Start OF NEW CHARA IMAGES ----*/
 
 .card-container {
@@ -161,7 +122,7 @@ pre {
     justify-content: center;
 }
 
-.race-card {
+.card {
     width: 200px;
     border: 1px solid #ddd;
     border-radius: 8px;
@@ -171,13 +132,13 @@ pre {
     text-align: center;
 }
 
-.race-image {
+.image {
     width: 100%;
     height: 300px;
     border-radius: 8px;
 }
 
-.race-name {
+.name {
     margin-top: 10px;
     font-size: 1.2em;
 }

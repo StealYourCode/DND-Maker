@@ -2,7 +2,7 @@ import json
 
 from flask import Flask, jsonify, render_template
 
-# Load data from JSON file
+# Load datas from JSON file (RACES, CLASSES, SUBCLASSES, etc)
 with open("data/classes.json") as f:
     classes = json.load(f)
 
@@ -13,6 +13,7 @@ with open("data/races.json") as f:
 def create_app():
     app = Flask(__name__)
 
+# ---- PATH TO THE MAIN PAGES ----
     # Path to the home page(/) html code
     @app.route("/")
     def index():
@@ -27,6 +28,9 @@ def create_app():
     def loadCharacter():
         return render_template("loadCharacter.html")
 
+
+# ---- PATH TO THE JSON DATA PAGES ----
+
     @app.route("/get_classes")
     def get_data():
         return jsonify(classes)
@@ -34,5 +38,8 @@ def create_app():
     @app.route("/get_races")
     def get_races():
         return jsonify(races)
+
+
+# ---- PATH TO THE JAVASCRIPT PAGES ----
 
     return app

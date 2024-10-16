@@ -1,151 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>D&D Character Creator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
+
 <body>
-    <h1>New character</h1>
 
-    <div class="progress-bar">
-      <div class="progress-bar-fill" id="progressFill"></div>
-      <!-- Step markers below the progress bar -->
-      <div class="progress-step" style="left: 0%;">Races</div>
-      <div class="progress-step" style="left: 25%;">Classes</div>
-      <div class="progress-step" style="left: 50%;">Background</div>
-      <div class="progress-step" style="left: 75%;">Starting Item</div>
-      <div class="progress-step" style="left: 100%;">Finish</div>
-    </div>
+  {% include 'header.html' %}
+  <h1>New character</h1>
+  <div class="buttonBox">
 
-    <div class="buttonBox">
-      
+    <button onclick="loadData('/get_races', 'cardContainer', 'races')">Races</button>
+    <button onclick="loadData('/get_classes', 'cardContainer', 'classes')">Classes</button>
+    <button onclick="backHome()">Return to the main menu</button>
 
     <div id="cardContainer" class="card-container"></div>
-    
 
-    <div id="modalOverlay" onclick="closeModal()"></div>
-    <div id="detailModal">
-        <h3 id="raceName">Race Name</h3>
-        <p id="raceAbilities">Race Abilities</p>
-        <p id="racePerks">Race Perks</p>
-        <p id="raceSpeed">Race Speed</p>
-        <p id="raceDescription">Race Description</p>
-        
-        <button onclick="closeModal()">Validate</button>
-        <button onclick="closeModal()">Close</button>
+    <div id="modalOverlay" style="display: none;" class="modal-overlay">
+      <!-- Modal Content -->
+      <div id="detailModal" class="modal-content" style="display: none;">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h2 id="name">Name Placeholder</h2>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <!-- Primary Information Section -->
+          <div class="info-section">
+            <p id="info1">Info 1 Placeholder</p>
+            <p id="info2">Info 2 Placeholder</p>
+          </div>
+
+          <!-- Perks Section -->
+          <div class="perks-section">
+            <h3>Perks</h3>
+            <div id="perks">
+              <!-- Perks will be dynamically inserted here -->
+            </div>
+          </div>
+
+          <!-- Description Section -->
+          <div class="description-section">
+            <h3>Description</h3>
+            <p id="description">Description Placeholder</p>
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button class="modal-button" onclick="closeModal()">Close</button>
+          <button class="modal-button" onclick="validateChoice(item)">Validate</button>
+        </div>
+      </div>
     </div>
 
-
-    <button onclick="loadRaces()">Start</button>
-    <button onclick="next(4)">Progress</button>
-    <button onclick="backHome()">Return to the main menu</button>
-    </div>
-
-  
-
-    <script>
-      async function loadRaces() {
-        try {
-          const response = await fetch('/get_races');
-          if (!response.ok) throw new Error("Network response was not ok");
-          const data = await response.json();
-          const races = data.races
-
-          const cardContainer = document.getElementById('cardContainer'); // Ensure this div exists in your HTML
-
-          // Clear any existing cards in case the function is called multiple times
-          cardContainer.innerHTML = '';
-
-          races.forEach(race => {
-            // Create a card div
-            const card = document.createElement('div');
-            card.className = 'race-card';
-
-            // Create an image element
-            const img = document.createElement('img');
-            img.src = race.image; // Assuming 'image' is the correct path key
-            img.alt = race.name || "Race Image"; // Use race name or a default alt text
-            img.className = 'race-image';
-
-            // Optionally, add other details (e.g., race name)
-            const name = document.createElement('h3');
-            name.textContent = race.name || 'Unnamed Race';
-            name.className = 'race-name';
-
-            // Append image and other details to the card
-            card.appendChild(img);
-            card.appendChild(name);
-
-            // Append card to the container
-            cardContainer.appendChild(card);
+  </div>
 
 
-            card.addEventListener('click', () => {
-              showRaceDetails(race);
-              console.log("Hello !");
-            });
-
-        })
-
-        } catch (error) {
-          console.error("There was a problem with the races fetch operation:", error);
-        }
-      }
-
-      function showRaceDetails(race) {
-
-            abilitiesText = loopData(race.abilities)
-            perkText = loopData(race.perks)
-
-            // Display the modal with race details
-            document.getElementById('raceName').textContent = race.name || 'Unnamed Race';
-            document.getElementById('raceAbilities').textContent = abilitiesText|| 'No description available.';
-            document.getElementById('racePerks').textContent = perkText || 'No description available.';
-            document.getElementById('raceSpeed').textContent = race.speed || 'No description available.';
-            document.getElementById('raceDescription').textContent = race.description || 'No description available.';
-            document.getElementById('modalOverlay').style.display = 'block';
-            document.getElementById('detailModal').style.display = 'block';
-        }
-
-    function loopData(data) {
-      const jsonObjet = data || {}; // Use an empty object if undefined
-      let Text = '';
-
-      // Loop through the keys of the abilities object
-      for (const key in jsonObjet) {
-        if (jsonObjet.hasOwnProperty(key)) {
-          Text += `${key}: ${jsonObjet[key]},<br> `; // Format the key-value pair
-        }
-      }
-      return Text
-    }
-
-
-     function closeModal() {
-            // Hide the modal and overlay
-            document.getElementById('modalOverlay').style.display = 'none';
-            document.getElementById('detailModal').style.display = 'none';
-        }
-
-      const progressBarFill = document.getElementById('progressFill');
-
-      function updateProgressBar(stepIndex) {
-        const stepPercentage = 100 / 6; // Total 5 steps
-        progressBarFill.style.width = `${(stepIndex + 1) * stepPercentage}%`;
-      }
-
-      function next(stepindex) {
-        updateProgressBar(stepindex);
-      }
-
-      function backHome() {
-        if (window.confirm("Are you sure you want to go back, your data won't be save ?")){
-          location.href = "/";
-        }
-      }
-    </script>
-
+  <script src="{{url_for('static', filename='Javascript/newChara.js')}}"></script>
 
 </body>
 </html>
