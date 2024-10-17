@@ -145,6 +145,78 @@ function formatAbilities(abilities) {
     .join(', ');
 }
 
+// ---- Score Button ----
+
+// Function to show the ability score options
+function showAbilityOptions() {
+  // Show the ability score container
+  document.getElementById('abilityScoreContainer').style.display = 'block';
+}
+
+// Show the Point Buy UI
+function showPointBuy() {
+  document.getElementById('pointBuySection').style.display = 'block';
+  document.getElementById('roll4d6Section').style.display = 'none';
+}
+
+// Show the Roll 4d6 UI
+function showRoll4d6() {
+  document.getElementById('roll4d6Section').style.display = 'block';
+  document.getElementById('pointBuySection').style.display = 'none';
+}
+
+// Roll 4d6 for each ability and show the results
+function rollAbilityScores() {
+  const stats = [];
+  for (let i = 0; i < 6; i++) {
+    let rolls = [];
+    for (let j = 0; j < 4; j++) {
+      rolls.push(Math.floor(Math.random() * 6) + 1);
+    }
+    rolls.sort((a, b) => b - a); // Sort in descending order
+    const score = rolls[0] + rolls[1] + rolls[2]; // Sum top 3
+    stats.push(score);
+  }
+  document.getElementById('rolledScores').innerText = "Rolled Scores: " + stats.join(", ");
+}
+
+// ---- OTHER BUTTONS ----
+function showCharacterInfo() {
+  document.getElementById('characterInfoContainer').style.display = 'block';
+}
+
+// Save Character Info to Character Object
+function saveCharacterInfo() {
+  // Get values from inputs
+  const alignment = document.getElementById('alignment').value;
+  const height = document.getElementById('height').value;
+  const weight = document.getElementById('weight').value;
+  const eyeColor = document.getElementById('eyeColor').value;
+  const hairColor = document.getElementById('hairColor').value;
+  const physicalTraits = document.getElementById('physicalTraits').value;
+  
+  const weaponProficiencies = document.getElementById('weaponProficiencies').value.split(',').map(item => item.trim());
+  const armorProficiencies = document.getElementById('armorProficiencies').value.split(',').map(item => item.trim());
+  const toolProficiencies = document.getElementById('toolProficiencies').value.split(',').map(item => item.trim());
+
+  // Update character object
+  character.alignment = alignment;
+  character.appearance = {
+    height: height,
+    weight: weight,
+    eyeColor: eyeColor,
+    hairColor: hairColor,
+    physicalTraits: physicalTraits,
+  };
+  character.proficiencies.weapons = weaponProficiencies;
+  character.proficiencies.armor = armorProficiencies;
+  character.proficiencies.tools = toolProficiencies;
+
+  // Confirm save
+  alert("Character info saved!");
+}
+
+
 // ---- CLOSE MODAL BUTTON ----
 
 function closeModal() {
