@@ -1,0 +1,174 @@
+{
+  "classes": [
+    {
+      "name": "Barbarian",
+      "hitDie": 12,
+      "primaryAbility": "Strength",
+      "savingThrows": ["Strength", "Constitution"],
+      "perks": {
+        "Rage": "Increases damage output and grants resistance to damage types.",
+        "Unarmored Defense": "Can add Constitution modifier to AC while not wearing armor.",
+        "Reckless Attack": "Grants advantage on attacks but also grants advantage to enemies attacking you."
+      },
+      "description": "Barbarians are fierce warriors who use their rage to enhance their combat abilities.",
+      "image": "/static/Classes/barbarian.png"
+    },
+    {
+      "name": "Bard",
+      "hitDie": 8,
+      "primaryAbility": "Charisma",
+      "savingThrows": ["Dexterity", "Charisma"],
+      "perks": {
+        "Bardic Inspiration": "Can grant allies a bonus die to enhance their rolls.",
+        "Spellcasting": "Has access to a variety of spells that enhance allies and hinder foes.",
+        "Jack of All Trades": "Can add half proficiency to any skill not already proficient in."
+      },
+      "description": "Bards are versatile performers and spellcasters, capable of inspiring allies and using magic to manipulate outcomes.",
+      "image": "/static/Classes/bard.png"
+    },
+    {
+      "name": "Cleric",
+      "hitDie": 8,
+      "primaryAbility": "Wisdom",
+      "savingThrows": ["Wisdom", "Charisma"],
+      "perks": {
+        "Divine Domain": "Gains features from a chosen domain that shapes their magical abilities.",
+        "Channel Divinity": "A variety of powerful effects specific to their chosen domain.",
+        "Spellcasting": "Draws upon divine power to cast spells that heal, protect, and smite."
+      },
+      "description": "Clerics are versatile spellcasters who draw their magic from divine sources.",
+      "image": "/static/Classes/cleric.png"
+    },
+    {
+      "name": "Druid",
+      "hitDie": 8,
+      "primaryAbility": "Wisdom",
+      "savingThrows": ["Intelligence", "Wisdom"],
+      "perks": {
+        "Wild Shape": "Can transform into various animals to aid in combat and exploration.",
+        "Druid Circle": "Specialized paths that provide unique abilities and spells.",
+        "Spellcasting": "Utilizes nature-based magic to heal, shape-shift, and control the environment."
+      },
+      "description": "Druids are nature-focused spellcasters who can transform into animals and wield primal magic.",
+      "image": "/static/Classes/druid.png"
+    },
+    {
+      "name": "Fighter",
+      "hitDie": 10,
+      "primaryAbility": "Strength or Dexterity",
+      "savingThrows": ["Strength", "Constitution"],
+      "perks": {
+        "Fighting Style": "Choose from a variety of combat styles that provide bonuses in battle.",
+        "Second Wind": "Allows a quick recovery of hit points during battle.",
+        "Action Surge": "Grants an additional action on your turn."
+      },
+      "description": "Fighters are highly trained warriors, proficient in a wide range of weapons and armor.",
+      "image": "/static/Classes/fighter.png"
+    },
+    {
+      "name": "Monk",
+      "hitDie": 8,
+      "primaryAbility": "Dexterity and Wisdom",
+      "savingThrows": ["Strength", "Dexterity"],
+      "perks": {
+        "Martial Arts": "Enables use of Dexterity for unarmed strikes and monk weapons.",
+        "Ki": "Provides energy for special abilities like Flurry of Blows and Step of the Wind.",
+        "Unarmored Movement": "Increases movement speed while not wearing armor."
+      },
+      "description": "Monks are martial artists who harness their inner energy to perform extraordinary physical feats.",
+      "image": "/static/Classes/monk.png"
+    },
+    {
+      "name": "Paladin",
+      "hitDie": 10,
+      "primaryAbility": "Strength and Charisma",
+      "savingThrows": ["Wisdom", "Charisma"],
+      "perks": {
+        "Divine Sense": "Detects the presence of strong evil and good forces.",
+        "Lay on Hands": "Heals using a pool of hit points.",
+        "Divine Smite": "Adds radiant damage to melee attacks."
+      },
+      "description": "Paladins are holy warriors bound to a sacred oath, blending martial prowess with divine magic.",
+      "image": "/static/Classes/paladin.png"
+    },
+    {
+      "name": "Ranger",
+      "hitDie": 10,
+      "primaryAbility": "Dexterity and Wisdom",
+      "savingThrows": ["Strength", "Dexterity"],
+      "perks": {
+        "Favored Enemy": "Grants bonuses when tracking and attacking chosen enemies.",
+        "Natural Explorer": "Increases proficiency in wilderness navigation and survival.",
+        "Spellcasting": "Uses nature-based magic to enhance their combat abilities and utility."
+      },
+      "description": "Rangers are skilled hunters and trackers, often bonded with nature and capable of using spells.",
+      "image": "/static/Classes/ranger.png"
+    },
+    {
+      "name": "Rogue",
+      "hitDie": 8,
+      "primaryAbility": "Dexterity",
+      "savingThrows": ["Dexterity", "Intelligence"],
+      "perks": {
+        "Sneak Attack": "Deals extra damage when attacking with advantage or when an ally is nearby.",
+        "Cunning Action": "Allows bonus actions for quick movement and stealth.",
+        "Evasion": "Can avoid damage from area effects."
+      },
+      "description": "Rogues are agile and stealthy characters who excel at dealing precision damage and avoiding danger.",
+      "image": "/static/Classes/rogue.png"
+    },
+    {
+      "name": "Sorcerer",
+      "hitDie": 6,
+      "primaryAbility": "Charisma",
+      "savingThrows": ["Constitution", "Charisma"],
+      "perks": {
+        "Sorcerous Origin": "Grants unique powers and spells based on their magical heritage.",
+        "Metamagic": "Allows customization of spells to enhance their effects.",
+        "Spellcasting": "Innate magical abilities drawn from an inner source of power."
+      },
+      "description": "Sorcerers wield innate magic, drawn from their lineage or other mystical sources.",
+      "image": "/static/Classes/sorcerer.png"
+    },
+    {
+      "name": "Warlock",
+      "hitDie": 8,
+      "primaryAbility": "Charisma",
+      "savingThrows": ["Wisdom", "Charisma"],
+      "perks": {
+        "Otherworldly Patron": "Gains unique powers from a pact with a powerful being.",
+        "Eldritch Invocations": "Provides special abilities and enhancements.",
+        "Pact Magic": "Limited but powerful spellcasting abilities."
+      },
+      "description": "Warlocks forge pacts with powerful entities to gain magical abilities and spells.",
+      "image": "/static/Classes/warlock.png"
+    },
+    {
+      "name": "Wizard",
+      "hitDie": 6,
+      "primaryAbility": "Intelligence",
+      "savingThrows": ["Intelligence", "Wisdom"],
+      "perks": {
+        "Arcane Recovery": "Regains expended spell slots after a short rest.",
+        "Spellbook": "Contains spells known to the wizard.",
+        "Arcane Tradition": "Specialized schools of magic provide unique features."
+      },
+      "description": "Wizards are scholarly magic-users who harness the power of arcane spells.",
+      "image": "/static/Classes/wizard.png"
+    },
+    {
+      "name": "Artificer",
+      "hitDie": 8,
+      "primaryAbility": "Intelligence",
+      "savingThrows": ["Constitution", "Intelligence"],
+      "perks": {
+        "Magical Tinkering": "Imbues small objects with magical properties.",
+        "Infuse Item": "Can create temporary magical items.",
+        "Tool Expertise": "Proficiency with artisan's tools, used for creating inventions and enhancements."
+      },
+      "description": "Artificers are inventors who blend magic with craftsmanship to create magical objects and devices.",
+      "image": "/static/Classes/artificer.png"
+    }
+  ]
+}
+

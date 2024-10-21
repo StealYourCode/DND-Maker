@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Character</title>
+  </head>
+  <body>
+
+    {% include 'header.html' %}
+    <h1>New Character</h1>
+
+    <div class="buttonBox">
+      <button onclick="loadData('/get_classes', 'cardContainer', 'classes')">Class</button>
+      <button onclick="loadData('/get_races', 'cardContainer', 'races')">Origin</button>
+      <button onclick="showAbilityOptions()">Scores</button>
+      <button onclick="clearAndShow('characterInfoContainer')">Other</button>
+
+
+
+      <!-- ABILITY SCORE UI -->
+      <div id="abilityScoreContainer" style="display: none;">
+        <h2>Choose Ability Scores Method</h2>
+        <div>
+          <button onclick="showPointBuy()">Point Buy</button>
+          <button onclick="showRoll4d6()">Roll 4d6</button>
+        </div>
+
+        <div id="pointBuySection" style="display: none;">
+          <h3>Point Buy</h3>
+          <p>Use points to buy your ability scores. (UI to be implemented)</p>
+        </div>
+
+        <div id="roll4d6Section" style="display: none;">
+          <h3>Roll 4d6 for Each Ability</h3>
+          <button onclick="rollAbilityScores()">Roll Dice</button>
+          <p id="rolledScores">Your rolled scores will appear here.</p>
+        </div>
+      </div>
+
+      <!-- CHARACTER INFO UI -->
+      <div id="characterInfoContainer" class="buttonBox" style="display: none;">
+        <h2>Character Details</h2>
+
+        <!-- Alignment and Proficiencies -->
+        <div>
+          <label for="alignment">Alignment:</label>
+          <select id="alignment">
+            <option value="Lawful Good">Lawful Good</option>
+            <option value="Neutral Good">Neutral Good</option>
+            <option value="Chaotic Good">Chaotic Good</option>
+            <!-- Add the remaining options -->
+          </select>
+        </div>
+
+        <!-- Physical Appearance -->
+        <h3>Appearance</h3>
+        <div>
+          <label for="height">Height:</label>
+          <input type="text" id="height" placeholder="e.g., 5'11">
+
+          <label for="weight">Weight:</label>
+          <input type="text" id="weight" placeholder="e.g., 160 lbs">
+
+          <label for="eyeColor">Eye Color:</label>
+          <input type="text" id="eyeColor" placeholder="e.g., Blue">
+
+          <label for="hairColor">Hair Color:</label>
+          <input type="text" id="hairColor" placeholder="e.g., Black">
+
+          <label for="physicalTraits">Physical Traits:</label>
+          <textarea id="physicalTraits" placeholder="Describe any unique physical traits..."></textarea>
+        </div>
+
+        <!-- Save Button -->
+        <button onclick="saveCharacterInfo()">Save Character Info</button>
+      </div>
+
+      <!-- RACE/CLASS UI -->
+      <div id="cardContainer" class="card-container"></div>
+
+      <!-- Modal -->
+      <div id="modalOverlay" style="display: none;" class="modal-overlay">
+        <div id="detailModal" class="modal-content" style="display: none;">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h2 id="name">Name Placeholder</h2>
+          </div>
+
+          <!-- Modal Body -->
+          <div class="modal-body">
+
+            <!-- Primary Information Section -->
+            <div class="info-section">
+              <h3>Primary Information</h3>
+              <p id="info1">Info 1 Placeholder</p>
+              <p id="info2">Info 2 Placeholder</p>
+            </div>
+
+            <!-- Abilities Section (for Races) -->
+            <div class="abilities-section" style="display: none;">
+              <h3>Abilities</h3>
+              <ul id="abilities">
+                <!-- Abilities will be dynamically inserted here -->
+              </ul>
+            </div>
+
+            <!-- Hit Die and Primary Ability Section (for Classes) -->
+            <div class="class-section" style="display: none;">
+              <h3>Class Details</h3>
+              <p id="hitDie">Hit Die: Placeholder</p>
+              <p id="primaryAbility">Primary Ability: Placeholder</p>
+            </div>
+
+            <!-- Perks Section -->
+            <div class="perks-section">
+              <h3>Perks</h3>
+              <div id="perks">
+                <!-- Perks will be dynamically inserted here -->
+              </div>
+            </div>
+
+            <!-- Description Section -->
+            <div class="description-section">
+              <h3>Description</h3>
+              <p id="description">Description Placeholder</p>
+            </div>
+          </div>
+
+          <!-- Modal Footer -->
+          <div class="modal-footer">
+            <button class="modal-button" onclick="closeModal()">Close</button>
+            <button class="modal-button" onclick="validateChoice()">Validate</button>
+          </div>
+        </div>
+      </div>
+
+
+      <button onclick="finalizeSelection()">Finish</button>
+      <button onclick="backHome()">Return to the main menu</button>
+
+    </div>
+
+    <script src="{{url_for('static', filename='Javascript/newChara.js')}}"></script>
+  </body>
+</html>
+

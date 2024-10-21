@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<body>
+  {% include 'header.html' %}
+  <!div class="titleBox">
+  <h1>Welcome to D&D Character Creator</h1>
+  <!/div>
+
+
+  <div class="buttonBox">
+    <button onclick="newChara()">Create a new Character</button>
+    <img src="/static/newChara.png" alt="Create Character Image" class="button-image">
+
+    <button onclick="loadChara()">Load an existing Character</button>
+    <img src="/static/loadChara.jpg" alt="Create Character Image" class="button-image">
+
+  </div>
+
+  <script>
+    function newChara() {
+      location.href = "create";
+    }
+
+    function loadChara() {
+      location.href = "loaded";
+    }
+  </script>
+</body>
+</html>
