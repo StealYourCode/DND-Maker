@@ -37,11 +37,11 @@ env.bak/
 venv.bak/
 
 # Static files
-*.png
-*.jpg
-*.jpeg
-*.gif
-*.svg
+#*.png
+#*.jpg
+#*.jpeg
+#*.gif
+#*.svg
 
 # Ignore node_modules and dependency files if you use Node.js
 node_modules/
